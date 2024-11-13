@@ -1,7 +1,7 @@
 
 $(document).ready(() => {
   const $body = $('body');
-  $body.html('');
+  $body.html(''); // clears the body .html is sort of like a .replace
 
   const $tweets = streams.home.map((tweet) => {
     const $tweet = $('<div></div>');
@@ -13,4 +13,5 @@ $(document).ready(() => {
   });
   $body.append($tweets);
 
+  //all code goes above this line!!
 });
