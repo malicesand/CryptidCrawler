@@ -20,7 +20,7 @@ $(document).ready(() => {
 
       $tweet.text(text);  // IMPORTANT for array or individual
       $tweetSection.prepend($tweet); // add individual tweet to beginning of tweetSection
-      // return $tweet // 
+      // return $tweet // necessary to return array
     });
   }
   // $body.append($tweets); // inserts array at end of body
