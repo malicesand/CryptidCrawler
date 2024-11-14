@@ -26,8 +26,10 @@ $(document).ready(() => {
     });
   }
   // $body.append($tweets); // inserts array at end of body
-  addNewTweets(); // START HERE FOR REFRESHING FUNCTION
-
+  addNewTweets(); // START HERE FOR REFRESHING FUNCTION // base function
+  // setInterval(() => { // works but too many updates!
+  //   addNewTweets()
+  // }, 1000);
 
 const $heading = $("<h1>TWIDDLER</h1>");  // header for page 
   ($body).prepend($heading) // header to top of page
