@@ -26,8 +26,14 @@ $(document).ready(() => {
   }
   // $body.append($tweets); // inserts array at end of body
   addNewTweets(); // START HERE FOR REFRESHING FUNCTION
-const $heading = $("<h1>TWIDDLER</h1>");
-($body).prepend($heading)
+
+
+const $heading = $("<h1>TWIDDLER</h1>");  // header for page 
+  ($body).prepend($heading) // header to top of page
+
+const $tweetTitle = $("<h2 id = 'tweetTitle'>Twiddles</h2>"); // title for tweet box
+  ($tweetSection).prepend($tweetTitle);
+  ($tweetTitle).css({color: 'blue', fontSize: '14 px', padding: '14px'})
 
 //all code above this line !!!
 });
