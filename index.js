@@ -11,10 +11,10 @@ $(document).ready(() => {
       // place tweetSection at beginning of body
     ($body).prepend($tweetSection);
       // tweetSection CSS
-    ($tweetSection).css({background: 'pink', border: 'border: 1rem solid;'})
+    ($tweetSection).css({background: 'pink', maxWidth: '500px', border: '15px solid blue'})
 
   function addNewTweets() { // 
-    const $tweets = streams.home.map(tweet => {
+    const $tweets = streams.home.map(tweet => { // not sure if we need this but it's staying
       const $tweet = $('<div></div>');
       const text = `@${tweet.user}: ${tweet.message}`;
 
