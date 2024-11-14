@@ -26,6 +26,8 @@ $(document).ready(() => {
   }
   // $body.append($tweets); // inserts array at end of body
   addNewTweets(); // START HERE FOR REFRESHING FUNCTION
+const $heading = $("<h1>TWIDDLER</h1>");
+($body).prepend($heading)
 
 //all code above this line !!!
 });
