@@ -2,7 +2,7 @@
 $(document).ready(() => {
   
   const $body = $('body'); // BODY
-    ($body).css({background: "green"})  // body CSS
+    ($body).css({backgroundImage:'<img src="img/quinlanSeaMonster.jpg/"/>', backgroundColor: 'green'})  // body CSS
 
   $body.html(''); // clears the body .html is sort of like a .replace
 
