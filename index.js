@@ -35,8 +35,9 @@ $(document).ready(() => {
   //   addNewTweets()
   // }, 1000);
 
-const $heading = $("<h1>TWIDDLER</h1>");  // header for page 
+const $heading = $("<h1 id= 'main-head'>CRYPTID CRAWLER</h1>");  // header for page 
   ($body).prepend($heading) // header to top of page
+  $('#main-head').css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
 
 const $tweetTitle = $("<h2 id = 'tweetTitle'>Twiddles</h2>"); // title for tweet box
   ($tweetSection).prepend($tweetTitle);
