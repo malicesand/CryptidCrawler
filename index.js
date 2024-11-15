@@ -2,7 +2,11 @@
 $(document).ready(() => {
   
   const $body = $('body'); // BODY
-  ($body).css('background-image', "url('img/quinlanSeaMonster.jpg')") // background image success
+  // $('.container').css({overflow: 'hidden'})
+  // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
+
+  ($body).css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
+  // ($body).css('background-size', '50%')
     // ($body).css({backgroundColor: 'green'})  // body CSS
 
   $body.html(''); // clears the body .html is sort of like a .replace
