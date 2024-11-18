@@ -1,20 +1,27 @@
 
 $(document).ready(() => {
   
+ $('title').text('Crypt Crawler')
   const $body = $('body'); // BODY
+  $body.html(''); // clears body
+  const $heading = $("<h1'>CRYPT CRAWLER</h1>");  // header for page 
+  $body.prepend($heading) // header to top of page
+  const $tweetsContainer = $('<div></div>')
+  $body.append($tweetsContainer)
+  
   // $('.container').css({overflow: 'hidden'})
   // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
-
-  ($body).css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
+  
+  $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
+  $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
   // ($body).css('background-size', '50%')
     // ($body).css({backgroundColor: 'green'})  // body CSS
 
-  $body.html(''); // clears the body .html is sort of like a .replace
 
     // Section to hold Tweets
   const $tweetSection = $('<section id = "tweet-section" class = "tweets">');
       // place tweetSection at beginning of body
-    ($body).prepend($tweetSection);
+    ($body).append($tweetSection);
       // tweetSection CSS
     ($tweetSection).css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
     
@@ -35,9 +42,6 @@ $(document).ready(() => {
   //   addNewTweets()
   // }, 1000);
 
-const $heading = $("<h1 id= 'main-head'>CRYPTID CRAWLER</h1>");  // header for page 
-  ($body).prepend($heading) // header to top of page
-  $('#main-head').css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
 
 const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
   ($tweetSection).prepend($tweetTitle);
