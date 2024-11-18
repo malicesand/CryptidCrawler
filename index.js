@@ -2,15 +2,22 @@
 $(document).ready(() => {
   
   $('title').text('Crypt Crawler'); // site title
-
+  
+  // Containers 
   const $body = $('body'); 
   $body.html(''); // clear body
   const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
-  $body.append($heading); // header to top of page
+  $body.prepend($heading); // header to top of page
   const $userTweetsForm = $('<form></form>'); // User Tweet Form
   $body.append($userTweetsForm); // Form under heading
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
+
+  // Buttons
+  const $backButton = $('<button id = "backButton">Back</button>')
+  const $submitTweet = $('<button id = "submitTweet">cry</button>')
+
+
   
 
   // const $usernameContainer = $('div id = "usernameContainer"></div>');
@@ -21,7 +28,7 @@ $(document).ready(() => {
   // $usernameContainer.append($userTextBox).append($userSubmitButton);
   // $body.append($usernameContainer)
   // Text Input Container
-  const $inputContainer = $('<div id = "user tweet" text >/div')
+  // const $inputContainer = $('<div id = "user tweet" text >/div')
   // Text box and submit button
 
   
