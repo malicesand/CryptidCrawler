@@ -14,16 +14,13 @@ $(document).ready(() => {
   
   $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
   $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
+  $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
   // ($body).css('background-size', '50%')
     // ($body).css({backgroundColor: 'green'})  // body CSS
 
 
     // Section to hold Tweets
-  const $tweetSection = $('<section id = "tweet-section" class = "tweets">');
-      // place tweetSection at beginning of body
-    ($body).append($tweetSection);
-      // tweetSection CSS
-    ($tweetSection).css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
+  
     
     function addNewTweets() { // 
       const $tweets = streams.home.map(tweet => { // not sure if we need this but it's staying
@@ -32,7 +29,7 @@ $(document).ready(() => {
         $('#tweet').css({color: 'green'})
 
       $tweet.text(text);  // IMPORTANT for array or individual
-      $tweetSection.prepend($tweet); // add individual tweet to beginning of tweetSection
+      $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       // return $tweet // necessary to return array
     });
   }
@@ -44,7 +41,7 @@ $(document).ready(() => {
 
 
 const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
-  ($tweetSection).prepend($tweetTitle);
+  ($tweetsContainer).prepend($tweetTitle);
   ($tweetTitle).css({fontFamily: 'melted monster', color: 'teal', fontSize: '14 px', padding: '14px', textAlign: 'center'})
 
 //all code above this line !!!
