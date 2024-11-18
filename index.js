@@ -26,7 +26,7 @@ $(document).ready(() => {
 
   // Tweet Container
   const $tweetsContainer = $('<div></div>')
-  $body.append($tweetsContainer)
+  $body.append($tweetsContainer)~
   // Container Title
   const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
   ($tweetsContainer).prepend($tweetTitle);
