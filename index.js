@@ -1,18 +1,18 @@
 
 $(document).ready(() => {
   
- $('title').text('Crypt Crawler')
-  
-  // Body variable and clear body 
+  $('title').text('Crypt Crawler'); // site title
+
   const $body = $('body'); 
-  $body.html(''); 
-
-  // Heading image
-  const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>")
-  $body.append($heading) // header to top of page
-
+  $body.html(''); // clear body
+  const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
+  $body.append($heading); // header to top of page
+  const $userTweetsForm = $('<form></form>'); // User Tweet Form
+  $body.append($userTweetsForm); // Form under heading
+  const $tweetsContainer = $('<div></div>');// Tweet Container
+  $body.append($tweetsContainer); // Contains Tweets
   
-  // Username container
+
   // const $usernameContainer = $('div id = "usernameContainer"></div>');
   // // user name text box. use input tag for limited characters
   // const $userTextBox = $('<input id="userTextBox" type="text" placeholder = "Creature"/>')
@@ -24,9 +24,7 @@ $(document).ready(() => {
   const $inputContainer = $('<div id = "user tweet" text >/div')
   // Text box and submit button
 
-  // Tweet Container
-  const $tweetsContainer = $('<div></div>')
-  $body.append($tweetsContainer)~
+  
   // Container Title
   const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
   ($tweetsContainer).prepend($tweetTitle);
