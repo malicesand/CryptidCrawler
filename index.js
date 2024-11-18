@@ -9,7 +9,20 @@ $(document).ready(() => {
 
   // Heading image
   const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>")
-  $body.prepend($heading) // header to top of page
+  $body.append($heading) // header to top of page
+
+  
+  // Username container
+  // const $usernameContainer = $('div id = "usernameContainer"></div>');
+  // // user name text box. use input tag for limited characters
+  // const $userTextBox = $('<input id="userTextBox" type="text" placeholder = "Creature"/>')
+  // // username submit button
+  // const $userSubmitButton = $('<button id="userSubmitButton"></button>');
+  // $usernameContainer.append($userTextBox).append($userSubmitButton);
+  // $body.append($usernameContainer)
+  // Text Input Container
+  const $inputContainer = $('<div id = "user tweet" text >/div')
+  // Text box and submit button
 
   // Tweet Container
   const $tweetsContainer = $('<div></div>')
@@ -18,17 +31,7 @@ $(document).ready(() => {
   const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
   ($tweetsContainer).prepend($tweetTitle);
 
-  //USER TWEETS
-  // username container
-  const $usernameContainer = $('div id = "usernameContainer"></div>');
-  // user name text box. use input tag for limited characters
-  const $userTextBox = $('<input id="userTextBox" type="text" placeholder = "Creature"/>')
-  // username submit button
-  const $userSubmitButton = $('<button id="userSumbitButton"></button')
 
-  // Text Input Container
-  const $inputContainer = $('<div id = "user tweet" text >/div')
-  // Text box and submit button
 
   // REFRESH TWEETS
   
@@ -64,10 +67,11 @@ $(document).ready(() => {
   
   // STYLING
   $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
-  $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
   $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
+  $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
   // tweet container title
   ($tweetTitle).css({fontFamily: 'melted monster', color: 'teal', fontSize: '14 px', padding: '14px', textAlign: 'center'})
+  // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
   // ($body).css('background-size', '50%')
     // ($body).css({backgroundColor: 'green'})  // body CSS
 
