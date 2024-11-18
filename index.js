@@ -4,7 +4,7 @@ $(document).ready(() => {
  $('title').text('Crypt Crawler')
   const $body = $('body'); // BODY
   $body.html(''); // clears body
-  const $heading = $("<h1'>CRYPT CRAWLER</h1>");  // header for page 
+  const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>")
   $body.prepend($heading) // header to top of page
   const $tweetsContainer = $('<div></div>')
   $body.append($tweetsContainer)
@@ -12,6 +12,7 @@ $(document).ready(() => {
   // $('.container').css({overflow: 'hidden'})
   // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
   
+  // STYLING
   $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
   $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
   $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
