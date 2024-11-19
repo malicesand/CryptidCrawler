@@ -23,35 +23,14 @@ $(document).ready(() => {
   $body.append($tweetsContainer); // Contains Tweets
   
   
-
-  
   // Buttons
   const $backButton = $('<button id = "backButton">Back</button>')
 
-
-  
-
-  // const $usernameContainer = $('div id = "usernameContainer"></div>');
-  // // user name text box. use input tag for limited characters
-  // const $userTextBox = $('<input id="userTextBox" type="text" placeholder = "Creature"/>')
-  // // username submit button
-  // const $userSubmitButton = $('<button id="userSubmitButton"></button>');
-  // $usernameContainer.append($userTextBox).append($userSubmitButton);
-  // $body.append($usernameContainer)
-  // Text Input Container
-  // const $inputContainer = $('<div id = "user tweet" text >/div')
-  // Text box and submit button
-
-  
-  
-  
-  
-  
+ let origin = streams.home;
   // REFRESH TWEETS
-  
   function addNewTweets() { // 
     // Create Tweet
-    const $tweets = streams.home.map(tweet => { // creates array of tweets
+    const $tweets = origin.map(tweet => { // creates array of tweets
       const $tweet = $('<div id = "tweet"></div>'); // tag for tweet
       const $username = $(`<div class = "username">@${tweet.user}</div>`); //class and tag for user name
       const $message = $(`<div class = "message">${tweet.message}</div>`);
@@ -99,9 +78,14 @@ $(document).ready(() => {
   setInterval(() => { // works but too many updates!
     addNewTweets()
   }, 5000);
-  // $('.container').css({overflow: 'hidden'})
-  // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
+
+
   
+  
+  
+
+
+
   // STYLING
   $body.css({
     backgroundImage: "url(img/quinlanSeaMonster.jpg)",
@@ -173,8 +157,6 @@ $(document).ready(() => {
     borderRadius: '37%',
   })
 
-   
-
   $tweetsContainer.css({
     marginTop: '150px',
     padding: '10px',
@@ -187,7 +169,8 @@ $(document).ready(() => {
     verticalAlign: 'center'})
   
  
- 
+ // $('.container').css({overflow: 'hidden'})
+  // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
   // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
   // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
 
