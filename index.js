@@ -14,8 +14,7 @@ $(document).ready(() => {
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
   
-  const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
-  ($tweetsContainer).append($tweetTitle);
+ 
   
 
   // $userTweetsForm.css({
@@ -48,27 +47,22 @@ $(document).ready(() => {
   
   function addNewTweets() { // 
     // Create Tweet
-    const $tweets = streams.home.map(tweet => { // not sure if we need this but it's staying
+    const $tweets = streams.home.map(tweet => { // creates array of tweets
       const $tweet = $('<div id = "tweet"></div>'); // tag for tweet
       const $username = $(`<div class = "username">@${tweet.user}</div>`); //class and tag for user name
       const $message = $(`<div class = "message">${tweet.message}</div>`);
-      // const text = `@${tweet.user}: ${tweet.message}` ; // not helpful
-      $('#tweet').css({color: 'green'})
-      $tweet.append([$username, $message])
-      // $tweet.prepend($username);
       
-      // TIME STAMPS
-      const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
+      $tweet.append([$username, $message])
+      
+      // TIME STAMPS using the created_at property from current tweet
+      const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp div
       const dayCreated = moment(tweet.created_at).format("MMMM DD"); // day
       const timeCreated = moment(tweet.created_at).format("LT") // moment to generate time created string
       const timePast = moment(tweet.created_at).fromNow(); // relative time
-      $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
-
-      // $tweet.text(text);  // IMPORTANT for array or individual
-      $tweet.append($timeStamp)
-      // $tweet.append($timeStamp)
+    
+      $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`); // string representing timestamp
+      $tweet.append($timeStamp) // append to tweet div
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
-      // return $tweet // necessary to return array
       
     });
   }
@@ -76,25 +70,20 @@ $(document).ready(() => {
   
   // $body.append($tweets); // inserts array at end of body
   addNewTweets(); // START HERE FOR REFRESHING FUNCTION // base function
-  // setInterval(() => { // works but too many updates!
-  //   addNewTweets()
-  // }, 1000);
+  setInterval(() => { // works but too many updates!
+    addNewTweets()
+  }, 5000);
   // $('.container').css({overflow: 'hidden'})
   // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
   
   // STYLING
   $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
-  $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
+  $tweetsContainer.css({background: 'pink', maxWidth: '500px', maxHeight: '1000px', horizontalAlign: 'center', verticalAlign: 'center'})
+ 
   // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
-  // tweet container title
-  // $tweetTitle.css({fontFamily: 'melted monster', color: 'teal', fontSize: '14 px', padding: '14px', textAlign: 'center'})
-  
   // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
-  // ($body).css('background-size', '50%')
-    // ($body).css({backgroundColor: 'green'})  // body CSS
 
 
-    // Section to hold Tweets
   
     
 
