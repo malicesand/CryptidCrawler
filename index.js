@@ -7,7 +7,8 @@ $(document).ready(() => {
   const $body = $('body'); 
   $body.html(''); // clear body
   
-  const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
+  const $heading = $("<img id = 'heading' src = 'img/CRYPTID CRAWLER LOGO 4.png'/>"); // Heading image
+  $heading.css({display: 'block', marginLeft: 'auto', marginRight: 'auto', width: '50%'})
   $body.prepend($heading); // header to top of page
 
   // Tweet Submission Form
