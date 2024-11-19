@@ -18,13 +18,15 @@ $(document).ready(() => {
   
   const $submitTweet = $('<button type = "submit" id = "submitTweet">Submit</button>'); // tweet button
   $userTweetsForm.append($submitTweet); // add to form
+  
+  const $backButton = $('<button id = "backButton">Back</button>')
+  $body.append($backButton);
 
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
   
   
-  // Buttons
-  const $backButton = $('<button id = "backButton">Back</button>')
+
 
  let origin = streams.home;
   // REFRESH TWEETS
@@ -32,7 +34,7 @@ $(document).ready(() => {
     // Create Tweet
     const $tweets = origin.map(tweet => { // creates array of tweets
       const $tweet = $('<div id = "tweet"></div>'); // tag for tweet
-      const $username = $(`<div class = "username">@${tweet.user}</div>`); //class and tag for user name
+      const $username = $(`<div id = "${tweet.user}" class = "username">@${tweet.user}</div>`);// create id for each user
       const $message = $(`<div class = "message">${tweet.message}</div>`);
       
       $tweet.append([$username, $message])
@@ -66,8 +68,19 @@ $(document).ready(() => {
         border: 'solid black',
         margin: '1.5%'
       })
+    })
+    // clicking on username
+    $(".username").on('click', function() { // when anything of the class username is clicked
+      origin = streams.users[$(this).attr('id')]; // the origin changes to the tweet array associated with this id
+      addNewTweets(origin); // call addNewTweets with user origin
 
     });
+    $('#backButton').on('click', function() {
+      origin = streams.home;
+      addNewTweets(origin);
+    })
+
+    
   };
   
 
@@ -155,6 +168,19 @@ $(document).ready(() => {
     marginLeft: '35%',
     marginTop: '7%',
     borderRadius: '37%',
+  })
+
+  $backButton.css({
+    fontFamily: 'creepster',
+    fontSize: '25pt',
+    margin: 'auto',
+    horizontalAlign: 'center',
+    letterSpacing: 'wide',
+    padding: '7px',
+    width: '300px',
+    height: '70px',
+    background: '#7fff00',
+    verticalAlign: 'center',
   })
 
   $tweetsContainer.css({
