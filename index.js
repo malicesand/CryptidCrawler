@@ -108,7 +108,8 @@ $(document).ready(() => {
   // STYLING
   $body.css({
     backgroundImage: "url(img/quinlanSeaMonster.jpg)",
-    justifyContent: 'center'}) // background image success
+    backgroundSize: 'auto',
+    backgroundColor: 'chartreuse' }) // background image success
 
   $userTweetsForm.css({
     margin: 'auto',
