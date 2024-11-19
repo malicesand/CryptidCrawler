@@ -58,6 +58,7 @@ $(document).ready(() => {
     
     // clicking on username
     $(".username").on('click', function() { // when anything of the class username is clicked
+      $tweetsContainer.html('')
       origin = streams.users[$(this).attr('id')]; // the origin changes to the tweet array associated with this id
       addNewTweets(origin); // call addNewTweets with user origin
       $backButton.insertBefore($tweetsContainer);
