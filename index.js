@@ -40,26 +40,32 @@ $(document).ready(() => {
   // Text box and submit button
 
   
-  // TIME STAMPS
-  // const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
-  // const dayCreated = moment(time).format("MMMM DD"); // day
-  // const timeCreated = moment(time).format("LT") // moment to generate time created string
-  // const timePast = moment(time).fromNow(); // relative time
-  // $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
-
-
-
-
+  
+  
+  
+  
   // REFRESH TWEETS
   
   function addNewTweets() { // 
     // Create Tweet
     const $tweets = streams.home.map(tweet => { // not sure if we need this but it's staying
-      const $tweet = $('<div id = "tweet"></div>');
-      const text = `@${tweet.user}: ${tweet.message}` ;
-      
+      const $tweet = $('<div id = "tweet"></div>'); // tag for tweet
+      // const $username = $(`<div class = "username">@${tweet.user}</div>`); //class and tag for user name
+      // const $message = $(`<div class= "message">${tweet.message}`);
+      const text = `@${tweet.user}: ${tweet.message}` ; // not helpful
       $('#tweet').css({color: 'green'})
+      // $tweet.text(message);
+      // $tweet.prepend($username);
+      // TIME STAMPS
+      
+      const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
+      const dayCreated = moment(tweet.created_at).format("MMMM DD"); // day
+      const timeCreated = moment(tweet.created_at).format("LT") // moment to generate time created string
+      const timePast = moment(tweet.created_at).fromNow(); // relative time
+      $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
+
       $tweet.text(text);  // IMPORTANT for array or individual
+      $tweet.append($timeStamp)
       // $tweet.append($timeStamp)
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       // return $tweet // necessary to return array
