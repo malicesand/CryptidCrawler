@@ -1,7 +1,7 @@
 
 $(document).ready(() => {
   
-  $('title').text('Crypt Crawler'); // site title
+  $('title').text('Cryptid Crawler'); // site title
   
   
   const $body = $('body'); 
