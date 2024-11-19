@@ -64,8 +64,21 @@ $(document).ready(() => {
       $tweet.append($timeStamp) // append to tweet div
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       
+      // $tweets CSS
+      $username.css({
+        fontFamily: "Creepster",
+        fontSize: '30pt'
+      })
+      
+      $message.css({
+        fontFamily: '"Edu AU VIC WA NT Pre", cursive',
+        fontSize: '15pt'
+      })
+      $timeStamp.css({
+        fontFamily: 'Creepster'
+      })
     });
-  }
+  };
   
   
   // $body.append($tweets); // inserts array at end of body
@@ -77,8 +90,19 @@ $(document).ready(() => {
   // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
   
   // STYLING
-  $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
-  $tweetsContainer.css({background: 'pink', maxWidth: '500px', maxHeight: '1000px', horizontalAlign: 'center', verticalAlign: 'center'})
+  $body.css({
+    backgroundImage: "url(img/quinlanSeaMonster.jpg)",
+    justifyContent: 'center'}) // background image success
+
+  $tweetsContainer.css({
+    background: 'pink',
+    maxWidth: '1000px', 
+    // maxHeight: '1000px', 
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    horizontalAlign: 'center', 
+    verticalAlign: 'center'})
+  
  
   // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
   // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
