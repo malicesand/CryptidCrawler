@@ -11,19 +11,22 @@ $(document).ready(() => {
   $body.prepend($heading); // header to top of page
   const $userTweetsForm = $('<form></form>'); // User Tweet Form
   $body.append($userTweetsForm); // Form under heading
+
+  //create children and labels for form
+  $userTweetsForm.append('<div class = "creature"><label for="creatureName">Creature Name:</label><input type="text" id = "creatureName" class = "username"</div>') // creatureName(userName)
+  $userTweetsForm.append('<div class = "creatureMessage"><label for="inputMessage">Message:</label><textarea type="text" id="inputMessage"</div>')
+  
+  const $submitTweet = $('<button type = "submit" id = "submitTweet">Submit</button>'); // tweet button
+  $userTweetsForm.append($submitTweet); // add to form
+
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
   
- 
   
 
-  $userTweetsForm.css({
-
-
-  })
+  
   // Buttons
   const $backButton = $('<button id = "backButton">Back</button>')
-  const $submitTweet = $('<button id = "submitTweet">cry</button>')
 
 
   
@@ -108,13 +111,71 @@ $(document).ready(() => {
 
   $userTweetsForm.css({
     margin: 'auto',
-    width: "1000px",
-    height: '500px',
+    width: "800px",
+    height: '650px',
     background: 'linear-gradient(to right,#8b008b,#556b2f)',
     borderRadius: "25px",
 
   })
+  $userTweetsForm.css({
+    padding: '20px',
+    justifyContent: 'center',
+  })
 
+  $('.creature').css({
+    margin: '20px',
+    fontFamily: 'creepster',
+    fontSize: '25pt',
+    // justifyContent: 'center',
+    display: 'grid',
+  })
+
+  $('#creatureName').css({
+    marginLeft: '50px',
+    marginRight: 'auto',
+    padding: '15px',
+    width: '600px',
+    background: 'Chartreuse',
+    fontFamily: 'creepster',
+    fontSize: '20pt',
+  
+  })
+  $('.creatureMessage').css({
+    margin: '20px',
+    fontFamily: 'creepster',
+    fontSize: '25pt',
+    // justifyContent: 'center',
+    display: 'grid',
+  })
+
+  $('#inputMessage').css({
+    marginTop: '10px',
+    marginLeft: '50px',
+    marginRight: 'auto',
+    padding: '50px',
+    width: '600px',
+    height: '150px',
+    background: 'Chartreuse',
+    fontFamily: 'creepster',
+    fontSize: '20pt',
+    display: 'inline-block'
+  })
+   
+  $submitTweet.css({
+    fontFamily: 'creepster',
+    fontSize: '25pt',
+    horizontalAlign: 'center',
+    letterSpacing: 'wide',
+    padding: '7px',
+    width: '300px',
+    height: '70px',
+    background: '#7fff00',
+    marginLeft: '35%',
+    marginTop: '7%',
+    borderRadius: '37%'
+
+
+  })
   $tweetsContainer.css({
     marginTop: '150px',
     padding: '10px',
