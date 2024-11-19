@@ -68,28 +68,26 @@ $(document).ready(() => {
       $tweet.append($timeStamp) // append to tweet div
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       
-      // $tweets CSS
-      $username.css({
+     // $Tweets CSS
+      $(".username").css({
         fontFamily: "Creepster",
         fontSize: '30pt'
       })
-      
-      $message.css({
-        fontFamily: '"Edu AU VIC WA NT Pre", cursive',
-        fontSize: '15pt'
-      })
 
-      $timeStamp.css({
+      $(".message").css({
+        fontFamily: '"Edu AU VIC WA NT Pre", cursive',
+        fontSize: '15pt'})
+
+      $(".timeStamp").css({
         fontFamily: 'Creepster'
       })
 
-      $tweet.css({
+      $('#tweet').css({
         background: 'green',
         border: 'solid black',
         margin: '1.5%'
       })
 
-     
     });
   };
   
@@ -172,10 +170,11 @@ $(document).ready(() => {
     background: '#7fff00',
     marginLeft: '35%',
     marginTop: '7%',
-    borderRadius: '37%'
-
-
+    borderRadius: '37%',
   })
+
+   
+
   $tweetsContainer.css({
     marginTop: '150px',
     padding: '10px',
@@ -187,6 +186,7 @@ $(document).ready(() => {
     horizontalAlign: 'center', 
     verticalAlign: 'center'})
   
+ 
  
   // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
   // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
