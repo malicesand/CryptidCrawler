@@ -3,72 +3,59 @@ $(document).ready(() => {
   
   $('title').text('Crypt Crawler'); // site title
   
-  // Containers 
+  
   const $body = $('body'); 
   $body.html(''); // clear body
   
   const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
   $body.prepend($heading); // header to top of page
-  const $userTweetsForm = $('<form></form>'); // User Tweet Form
+
+  // Tweet Submission Form
+  const $userTweetsForm = $('<form></form>'); 
   $body.append($userTweetsForm); // Form under heading
+  $userTweetsForm.append('<div class = "creature"><label for="creatureName">Creature Name:</label><input type="text" id = "creatureName"</div>') // username
+  $userTweetsForm.append('<div class = "creatureMessage"><label for="crypticMissive">Cryptic Missive:</label><textarea type="text" id="crypticMissive"</div>') // input message
+  const $submitTweet = $('<button type = "submit" id = "submitTweet">Transmit</button>'); // button to submit username and message
+  $userTweetsForm.append($submitTweet); // add button to form below the input message textarea
+  $userTweetsForm.attr('onSubmit', 'return false') // creates rule preventing refresh when submit button is pressed
 
-  //create children and labels for form
-  $userTweetsForm.append('<div class = "creature"><label for="creatureName">Creature Name:</label><input type="text" id = "creatureName" class = "username"</div>') // creatureName(userName)
-  $userTweetsForm.append('<div class = "creatureMessage"><label for="inputMessage">Message:</label><textarea type="text" id="inputMessage"</div>')
-  
-  const $submitTweet = $('<button type = "submit" id = "submitTweet">Submit</button>'); // tweet button
-  $userTweetsForm.append($submitTweet); // add to form
-  
-  const $backButton = $('<button id = "backButton">Back to Main</button>')
-  // $body.append($backButton);
+  // Create Tweet Container
+  const $tweetsContainer = $('<div></div>');
+  $body.append($tweetsContainer); // places tweet container below form
 
-  const $tweetsContainer = $('<div></div>');// Tweet Container
-  $body.append($tweetsContainer); // Contains Tweets
-  
-  
+  const $backButton = $('<button id = "backButton">Main Mutterings</button>') // button which redirect to main message feed
 
+ let origin = streams.home; // variable origin represents the source of the tweets
 
- let origin = streams.home;
-  // REFRESH TWEETS
-  function addNewTweets() { // 
-    // Create Tweet
+  function addNewTweets() { // creates tweet tag, time
+    // $tweets variable represents an array of tweets created from the origin (typically streams.home from data-generator)
     const $tweets = origin.map(tweet => { // creates array of tweets
+      
+      // Format Tweet
       const $tweet = $('<div id = "tweet"></div>'); // tag for tweet
       const $username = $(`<div id = "${tweet.user}" class = "username">@${tweet.user}</div>`);// create id for each user
-      const $message = $(`<div class = "message">${tweet.message}</div>`);
-      
-      $tweet.append([$username, $message])
-      
-      // TIME STAMPS using the created_at property from current tweet
-      const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp div
-      const dayCreated = moment(tweet.created_at).format("MMMM DD"); // day
-      const timeCreated = moment(tweet.created_at).format("LT") // moment to generate time created string
-      const timePast = moment(tweet.created_at).fromNow(); // relative time
-    
+      const $message = $(`<div class = "message">${tweet.message}</div>`); // create tag for class
+      $tweet.append([$username, $message]) // add the username and message variables to the tweet tag
+        
+      // Format Timestamp 
+      const $time = tweet.created_at // variable time  represents the created_at property from data-generator
+      const dayCreated = moment($time).format("MMMM DD"); // day
+      const timeCreated = moment($time).format("LT") // moment to generate time created string
+      const timePast = moment($time).fromNow(); // relative time
+      const $timeStamp = $('<div id = "timeStamp"></div>') // create tag with timeStamp I
       $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`); // string representing timestamp
-      $tweet.append($timeStamp) // append to tweet div
+      
+      // Append timeStamp container to tweet
+      $tweet.append($timeStamp) // timesStamp.text will appear at the end of the tweet tag
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       
-     // $Tweets CSS
-      $(".username").css({
-        fontFamily: "Creepster",
-        fontSize: '30pt'
-      })
-
-      $(".message").css({
-        fontFamily: '"Edu AU VIC WA NT Pre", cursive',
-        fontSize: '15pt'})
-
-      $(".timeStamp").css({
-        fontFamily: 'Creepster'
-      })
-
-      $('#tweet').css({
-        background: 'green',
-        border: 'solid black',
-        margin: '1.5%'
-      })
-    })
+      // Tweet CSS
+      $(".username").css({fontFamily: "Creepster", fontSize: '30pt'})
+      $(".message").css({fontFamily: '"Edu AU VIC WA NT Pre", cursive', fontSize: '15pt'})
+      $(".timeStamp").css({fontFamily: 'Creepster'})
+      $('#tweet').css({background: 'green', border: 'solid black', margin: '1.5%'})
+  })
+    
     // clicking on username
     $(".username").on('click', function() { // when anything of the class username is clicked
       origin = streams.users[$(this).attr('id')]; // the origin changes to the tweet array associated with this id
@@ -76,31 +63,46 @@ $(document).ready(() => {
       $backButton.insertBefore($tweetsContainer);
 
     });
+    // clicking on back
     $('#backButton').on('click', function() {
       origin = streams.home;
       addNewTweets(origin);
       $backButton.remove();
     })
-
-    
   };
+
+  // Call addNewTweets
+  addNewTweets(); 
+
+  // Set Interval to continue retrieving new tweets 
+  setInterval(() => { 
+    addNewTweets() // calls the addNewTweets function 
+  }, 5000); // every 5 seconds
   
 
- 
+  // Construct Function to call when submitTweet button is clicked
+  function writeTweet() {
+    const message = $('#crypticMissive').val(); // variable message set to the value of the input form
+    if (message) {
+      const username = $('#creatureName').val(); // variable username set to the input vorm
+      const tweet = {
+        user: username,
+        message: message,
+        created_at: new Date() // new value for created_at property generated 
+      };
+      streams.home.push(tweet); 
+      if (!streams[username]) {
+        streams[username] = [];
+      }
+      streams[username].push(tweet);
+      addNewTweets();
+      $('#crypticMissive').val('')
+    }
+  }
+  // Click Event Listener for the submitTweet button
+  $('#submitTweet').click(writeTweet) // calls the writeTweet function
+
   
-  // $body.append($tweets); // inserts array at end of body
-  addNewTweets(); // START HERE FOR REFRESHING FUNCTION // base function
-  setInterval(() => { // works but too many updates!
-    addNewTweets()
-  }, 5000);
-
-
-  
-  
-  
-
-
-
   // STYLING
   $body.css({
     backgroundImage: "url(img/quinlanSeaMonster.jpg)",
@@ -145,7 +147,7 @@ $(document).ready(() => {
     display: 'grid',
   })
 
-  $('#inputMessage').css({
+  $('#crypticMissive').css({
     marginTop: '10px',
     marginLeft: '50px',
     marginRight: 'auto',
