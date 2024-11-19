@@ -9,17 +9,18 @@ $(document).ready(() => {
   
   const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
   $body.prepend($heading); // header to top of page
-  // const $userTweetsForm = $('<form></form>'); // User Tweet Form
-  // $body.append($userTweetsForm); // Form under heading
+  const $userTweetsForm = $('<form></form>'); // User Tweet Form
+  $body.append($userTweetsForm); // Form under heading
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
   
  
   
 
-  // $userTweetsForm.css({
+  $userTweetsForm.css({
 
-  // })
+
+  })
   // Buttons
   const $backButton = $('<button id = "backButton">Back</button>')
   const $submitTweet = $('<button id = "submitTweet">cry</button>')
@@ -74,12 +75,23 @@ $(document).ready(() => {
         fontFamily: '"Edu AU VIC WA NT Pre", cursive',
         fontSize: '15pt'
       })
+
       $timeStamp.css({
         fontFamily: 'Creepster'
       })
+
+      $tweet.css({
+        background: 'green',
+        border: 'solid black',
+        margin: '1.5%'
+      })
+
+     
     });
   };
   
+
+ 
   
   // $body.append($tweets); // inserts array at end of body
   addNewTweets(); // START HERE FOR REFRESHING FUNCTION // base function
@@ -94,7 +106,18 @@ $(document).ready(() => {
     backgroundImage: "url(img/quinlanSeaMonster.jpg)",
     justifyContent: 'center'}) // background image success
 
+  $userTweetsForm.css({
+    margin: 'auto',
+    width: "1000px",
+    height: '500px',
+    background: 'linear-gradient(to right,#8b008b,#556b2f)',
+    borderRadius: "25px",
+
+  })
+
   $tweetsContainer.css({
+    marginTop: '150px',
+    padding: '10px',
     background: 'pink',
     maxWidth: '1000px', 
     // maxHeight: '1000px', 
