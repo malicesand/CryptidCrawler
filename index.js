@@ -19,8 +19,8 @@ $(document).ready(() => {
   const $submitTweet = $('<button type = "submit" id = "submitTweet">Submit</button>'); // tweet button
   $userTweetsForm.append($submitTweet); // add to form
   
-  const $backButton = $('<button id = "backButton">Back</button>')
-  $body.append($backButton);
+  const $backButton = $('<button id = "backButton">Back to Main</button>')
+  // $body.append($backButton);
 
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
@@ -73,11 +73,13 @@ $(document).ready(() => {
     $(".username").on('click', function() { // when anything of the class username is clicked
       origin = streams.users[$(this).attr('id')]; // the origin changes to the tweet array associated with this id
       addNewTweets(origin); // call addNewTweets with user origin
+      $backButton.insertBefore($tweetsContainer);
 
     });
     $('#backButton').on('click', function() {
       origin = streams.home;
       addNewTweets(origin);
+      $backButton.remove();
     })
 
     
@@ -173,18 +175,23 @@ $(document).ready(() => {
   $backButton.css({
     fontFamily: 'creepster',
     fontSize: '25pt',
+    // marginTop: '20px',
+    // marginLeft: '700px',
+    // marginRight: '50%',
+    // horizontalAlign: 'center',
     margin: 'auto',
-    horizontalAlign: 'center',
+    marginTop: '60px',
+    display: 'block',
     letterSpacing: 'wide',
     padding: '7px',
     width: '300px',
     height: '70px',
     background: '#7fff00',
-    verticalAlign: 'center',
+    // verticalAlign: 'center',
   })
 
   $tweetsContainer.css({
-    marginTop: '150px',
+    marginTop: '100px',
     padding: '10px',
     background: 'pink',
     maxWidth: '1000px', 
