@@ -12,7 +12,12 @@ $(document).ready(() => {
   $body.append($userTweetsForm); // Form under heading
   const $tweetsContainer = $('<div></div>');// Tweet Container
   $body.append($tweetsContainer); // Contains Tweets
+  const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
+  ($tweetsContainer).prepend($tweetTitle);
 
+  $userTweetsForm.css({
+
+  })
   // Buttons
   const $backButton = $('<button id = "backButton">Back</button>')
   const $submitTweet = $('<button id = "submitTweet">cry</button>')
@@ -32,9 +37,7 @@ $(document).ready(() => {
   // Text box and submit button
 
   
-  // Container Title
-  const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
-  ($tweetsContainer).prepend($tweetTitle);
+
 
 
 
@@ -51,17 +54,16 @@ $(document).ready(() => {
     $tweet.text(text);  // IMPORTANT for array or individual
     $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
     // return $tweet // necessary to return array
+    // TIME STAMPS
+  const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
+  const dayCreated = moment(time).format("MMMM DD"); // day
+  const timeCreated = moment(time).format("LT") // moment to generate time created string
+  const timePast = moment(time).fromNow(); // relative time
   });
 }
-  // TIME STAMPS
-  // Time Stamp div and class
+    $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
+    
 
-  // moment.js time stamp formula
-  function createTimeStamp(timeStamp) { 
-    // time created
-    // human form
-    //return combo
-  }
   // $body.append($tweets); // inserts array at end of body
   addNewTweets(); // START HERE FOR REFRESHING FUNCTION // base function
   // setInterval(() => { // works but too many updates!
