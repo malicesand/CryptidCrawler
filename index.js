@@ -102,7 +102,7 @@ $(document).ready(() => {
   // Click Event Listener for the submitTweet button
   $('#submitTweet').click(writeTweet) // calls the writeTweet function
 
-  
+
   // STYLING
   $body.css({
     backgroundImage: "url(img/quinlanSeaMonster.jpg)",
@@ -202,17 +202,6 @@ $(document).ready(() => {
     marginLeft: 'auto',
     horizontalAlign: 'center', 
     verticalAlign: 'center'})
-  
- 
- // $('.container').css({overflow: 'hidden'})
-  // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
-  // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
-  // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
-
-
-  
-    
-
 
 //all code above this line !!!
 });
