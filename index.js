@@ -6,16 +6,17 @@ $(document).ready(() => {
   // Containers 
   const $body = $('body'); 
   $body.html(''); // clear body
-  $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
+  
   const $heading = $("<img id = 'heading' src = 'img/CRYPT CRAWLER LOGO2.png'/>"); // Heading image
   $body.prepend($heading); // header to top of page
-  const $userTweetsForm = $('<form></form>'); // User Tweet Form
-  $body.append($userTweetsForm); // Form under heading
+  // const $userTweetsForm = $('<form></form>'); // User Tweet Form
+  // $body.append($userTweetsForm); // Form under heading
   const $tweetsContainer = $('<div></div>');// Tweet Container
-  $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
   $body.append($tweetsContainer); // Contains Tweets
+  
   const $tweetTitle = $("<h2 id = 'tweetTitle'>muttering</h2>"); // title for tweet box
-  ($tweetsContainer).prepend($tweetTitle);
+  ($tweetsContainer).append($tweetTitle);
+  
 
   // $userTweetsForm.css({
 
@@ -40,11 +41,11 @@ $(document).ready(() => {
 
   
   // TIME STAMPS
-  const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
-  const dayCreated = moment(time).format("MMMM DD"); // day
-  const timeCreated = moment(time).format("LT") // moment to generate time created string
-  const timePast = moment(time).fromNow(); // relative time
-  $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
+  // const $timeStamp = $('<div id = "timeStamp"></div>') // #timeStamp 
+  // const dayCreated = moment(time).format("MMMM DD"); // day
+  // const timeCreated = moment(time).format("LT") // moment to generate time created string
+  // const timePast = moment(time).fromNow(); // relative time
+  // $timeStamp.text(`${dayCreated} at ${timeCreated} (${timePast})`)
 
 
 
@@ -57,8 +58,9 @@ $(document).ready(() => {
       const $tweet = $('<div id = "tweet"></div>');
       const text = `@${tweet.user}: ${tweet.message}` ;
       
+      $('#tweet').css({color: 'green'})
       $tweet.text(text);  // IMPORTANT for array or individual
-      $tweet.append($timeStamp)
+      // $tweet.append($timeStamp)
       $tweetsContainer.prepend($tweet); // add individual tweet to beginning of tweetSection
       // return $tweet // necessary to return array
       
@@ -75,11 +77,12 @@ $(document).ready(() => {
   // $('.sliding-background').css({background: "url('img/quinlanSeaMonster.jpg') repeat-x", height: '500px', width: '5076px'})
   
   // STYLING
-  
+  $body.css({backgroundImage: "url(img/quinlanSeaMonster.jpg)"}) // background image success
+  $tweetsContainer.css({background: 'pink', maxWidth: '500px', horizontalAlign: 'center'})
   // $usernameContainer.css({background: 'teal', maxWidth: 'px', horizontalAlign: 'center'})
   // tweet container title
-  $tweetTitle.css({fontFamily: 'melted monster', color: 'teal', fontSize: '14 px', padding: '14px', textAlign: 'center'})
-  $tweet.css({color: 'green'})
+  // $tweetTitle.css({fontFamily: 'melted monster', color: 'teal', fontSize: '14 px', padding: '14px', textAlign: 'center'})
+  
   // $heading.css({fontFamily: 'melted monster', color: 'magenta', fontSize: '100px', textAlign: 'center'})
   // ($body).css('background-size', '50%')
     // ($body).css({backgroundColor: 'green'})  // body CSS
